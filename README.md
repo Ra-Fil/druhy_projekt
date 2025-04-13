@@ -1,2 +1,2 @@
 # druhy_projekt
-Druhy projekt akademie Engeto
+Druhy projekt akademie Engeto - Bulls & Cows
