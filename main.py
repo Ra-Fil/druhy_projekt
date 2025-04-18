@@ -16,7 +16,7 @@ def greet_user():
     print("-" * 40)
 
 def generate_secret_number():
-    """Funkce pro generování tajného 4místného čísla, nesmi obsahovat 0"""
+    """Vygeneruje 4místné číslo s unikátními číslicemi, nezačíná nulou."""
     digits = list('0123456789')
     first_digit = random.choice(digits[1:])
     digits.remove(first_digit)
@@ -32,7 +32,7 @@ def is_valid_guess(guess):
     if len(guess) != 4:
         return False, "Input must be exactly 4 digits."
     if guess[0] == '0':
-        return False, "Number cannot contain 0."
+        return False, "Number cannot start with 0."
     if len(set(guess)) != 4:
         return False, "Digits must be unique."
     return True, ""
