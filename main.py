@@ -17,13 +17,11 @@ def greet_user():
 
 def generate_secret_number():
     """Vygeneruje 4místné číslo s unikátními číslicemi, nezačíná nulou."""
-    digits = list('0123456789')
-    first_digit = random.choice(digits[1:])
-    digits.remove(first_digit)
-    remaining_digits = digits.copy()
-    random.shuffle(remaining_digits)
-    number = first_digit + ''.join(remaining_digits[:3])
-    return number
+    first_digit = random.sample('123456789', 1)
+    other_digits = random.sample(
+        [d for d in '0123456789' if d not in first_digit], 3
+    )
+    return ''.join(first_digit + other_digits)
 
 def is_valid_guess(guess):
     """Funkce pro kontrolu správného vstupu od uživatele (kontroluje čtyřmístný unikátní číselný řetězec)."""
